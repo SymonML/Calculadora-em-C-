@@ -1,56 +1,89 @@
 #include <stdio.h>
 
 float somaf (float num1, float num2){
-    float resultado;
-    resultado = num1 + num2;
-    return resultado;
+    float resultado_soma;
+    resultado_soma = num1 + num2;
+    return resultado_soma;
 }
 
 float subtracaof (float num1, float num2){
-    float resultado;
-    resultado = num1 - num2;
-    return resultado;
+    float resultado_subt;
+    resultado_subt = num1 - num2;
+    return resultado_subt;
 }
 
-float multiplicação (float num1, float num2){
-    float resultado;
-    resultado = num1 * num2;
-    return resultado;
+float multiplicaçãof (float num1, float num2){
+    float resultado_multi;
+    resultado_multi = num1 * num2;
+    return resultado_multi;
 }
 
-float divisao (float num1, float num2){
-    float resultado;
-    resultado = num1 / num2;
-    return resultado;
+float divisaof (float num1, float num2){
+    float resultado_div;
+    resultado_div = num1 / num2;
+    return resultado_div;
 }
 
-float potencia (float num1, float num2){
-    float resultado;
+float potenciaf (float num1, float num2){
+    float resultado_potencia;
     for(int i = 0; i < num2; i++){
-        resultado *= num1;
+        resultado_potencia *= num1;
     }
-    return resultado;
+    return resultado_potencia;
 }
 
-float porcentagem (float num1, float num2){
-    float resultado;
-    resultado = num1 / 100 * num2;
-    return resultado;
+float porcentagemf (float num1, float num2){
+    float resultado_porcen;
+    resultado_porcen = num1 / 100 * num2;
+    return resultado_porcen;
 }
 
 int main() {
     
-    printf("Bem vindo a calculadora do SYMINHO!!!\n\n\n");
+    float num1, num2;
+    char operador;
+    float resultado;
     
+    printf("Digite um númeto:");
+    scanf("%f", &num1);
     
-    printf("\nEscolha um operador lógico?");
+    printf("\nEscolha um dos operadores lógicos para efetuar a operação?");
     printf("\n[+] - Soma");
     printf("\n[-] - Subtração");
     printf("\n[*] - Multiplicação");
     printf("\n[/] - Divisão");
     printf("\n[^] - Potencia");
     printf("\n[%] - Porcentagem");
-
+    
+    printf("\n\nInsira aqui o operador:");
+    scanf("%s", &operador);
+    
+    printf("\nInsira aqui o segundo operador lógico:");
+    scanf("%f", &num2);
+    
+    switch(operador){
+        case '+':
+            resultado == somaf(num1, num2);
+            break;
+        case '-':
+            resultado == subtracaof(num1, num2);
+            break;
+        case '*':
+            resultado == multiplicaçãof(num1, num2);
+            break;
+        case '/':
+            resultado == divisaof(num1, num2);
+            break;
+        case '^':
+            resultado == potenciaf(num1, num2);
+            break;
+        case '%':
+            resultado == porcentagemf(num1, num2);
+            break;
+        default:
+            printf("\nO operador digitado não condiz com a opção. Tente novamente!");
+            return 1;
+    }
     
     return 0;
 }
