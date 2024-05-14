@@ -1,14 +1,47 @@
 #include <stdio.h>
 
+float somaf (float num1, float num2){
+    float resultado;
+    resultado = num1 + num2;
+    return resultado;
+}
+
+float subtracaof (float num1, float num2){
+    float resultado;
+    resultado = num1 - num2;
+    return resultado;
+}
+
+float multiplicação (float num1, float num2){
+    float resultado;
+    resultado = num1 * num2;
+    return resultado;
+}
+
+float divisao (float num1, float num2){
+    float resultado;
+    resultado = num1 / num2;
+    return resultado;
+}
+
+float potencia (float num1, float num2){
+    float resultado;
+    for(int i = 0; i < num2; i++){
+        resultado *= num1;
+    }
+    return resultado;
+}
+
+float porcentagem (float num1, float num2){
+    float resultado;
+    resultado = num1 / 100 * num2;
+    return resultado;
+}
+
 int main() {
     
     printf("Bem vindo a calculadora do SYMINHO!!!\n\n\n");
     
-    double num1, num2, resultado;
-    char operador;
-    
-    printf("Digite o numero para efetuar o calcular: ");
-    scanf("%lf", &num1);
     
     printf("\nEscolha um operador lógico?");
     printf("\n[+] - Soma");
@@ -17,40 +50,7 @@ int main() {
     printf("\n[/] - Divisão");
     printf("\n[^] - Potencia");
     printf("\n[%] - Porcentagem");
-    printf("\n\nDigite aqui o operador lógico: ");
-    scanf("%s", &operador);
-    
-    printf("\nEscolha o outro numero para ser calculado: ");
-    scanf("%lf", &num2);
-    
-    switch(operador){
-        case '+':
-            resultado = num1 + num2;
-            break;
-        case '-':
-            resultado = num1 - num2;
-            break;
-        case '*':
-            resultado = num1 * num2;
-            break;
-        case '/':
-            if(num2 == 0){
-            printf("A operação não pode ser efetuada!");
-            }
-            resultado = num1 + num2;
-            return 0;
-            break;
-        //case '^':
-            //resultado = pow (num1, num2);            
-           // break;
-        case '%':
-            resultado = num1 / 100 * num2;
-            break;
-        default:
-            printf("\nO operador lógico selecionado não corresponde. Tente novamente!");
-            return 1;
-    }
-        printf("\nCALCULO: %.2lf %c %.2lf = %.2lf", num1, operador, num2, resultado);
 
+    
     return 0;
 }
