@@ -1,47 +1,53 @@
 #include <stdio.h>
 
 float somaf (float num1, float num2){
-    float resultado_soma;
-    resultado_soma = num1 + num2;
-    return resultado_soma;
+    float resultado;
+    resultado = num1 + num2;
+    return resultado;
 }
 
 float subtracaof (float num1, float num2){
-    float resultado_subt;
-    resultado_subt = num1 - num2;
-    return resultado_subt;
+    float resultado;
+    resultado = num1 - num2;
+    return resultado;
 }
 
 float multiplicaçãof (float num1, float num2){
-    float resultado_multi;
-    resultado_multi = num1 * num2;
-    return resultado_multi;
+    float resultado;
+    resultado = num1 * num2;
+    return resultado;
 }
 
 float divisaof (float num1, float num2){
-    float resultado_div;
-    resultado_div = num1 / num2;
-    return resultado_div;
+    float resultado;
+    resultado = num1 / num2;
+    if(num2 == 0){
+        printf("Não é possível realizar um divisão por zero!");
+    }
+    else{
+        resultado = num1 / num2;
+    }
+    return resultado;
 }
 
 float potenciaf (float num1, float num2){
-    float resultado_potencia;
+    float resultado;
     for(int i = 0; i < num2; i++){
-        resultado_potencia *= num1;
+        resultado *= num1;
     }
-    return resultado_potencia;
+    return resultado;
 }
 
 float porcentagemf (float num1, float num2){
-    float resultado_porcen;
-    resultado_porcen = num1 / 100 * num2;
-    return resultado_porcen;
+    float resultado;
+    resultado = num1 / 100 * num2;
+    return resultado;
 }
 
 int main() {
     
     float num1, num2;
-    char operador;
+    char operador, resposta;
     float resultado;
     
     printf("Digite um númeto:");
@@ -63,7 +69,7 @@ int main() {
     
     switch(operador){
         case '+':
-            resultado == somaf(num1, num2);
+            resultado = somaf(num1, num2);
             break;
         case '-':
             resultado == subtracaof(num1, num2);
@@ -84,6 +90,17 @@ int main() {
             printf("\nO operador digitado não condiz com a opção. Tente novamente!");
             return 1;
     }
+    printf("Digite o segundo numero:");
+    printf("\n\nA operação é: %.2f %c %.2f = %.2f", num1, operador, num2, resultado);
     
+    printf("Deseja continuar com o calculo ? (sim/não)");
+    scanf("%c", resposta);
+    
+    if(resposta == sim)){
+        printf("Ok. Vamos lá!");
+    }
+    else{
+        printf("Obrigado por utilizar a calculadora do Syminho. Volte sempre!");
+    }
     return 0;
 }
