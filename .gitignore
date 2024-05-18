@@ -1,106 +1,86 @@
 #include <stdio.h>
 
-float somaf (float num1, float num2){
-    float resultado;
-    resultado = num1 + num2;
-    return resultado;
+float somaf(float num1, float num2) {
+    return num1 + num2;
 }
 
-float subtracaof (float num1, float num2){
-    float resultado;
-    resultado = num1 - num2;
-    return resultado;
+float subtracaof(float num1, float num2) {
+    return num1 - num2;
 }
 
-float multiplicaçãof (float num1, float num2){
-    float resultado;
-    resultado = num1 * num2;
-    return resultado;
+float multiplicacaof(float num1, float num2) {
+    return num1 * num2;
 }
 
-float divisaof (float num1, float num2){
-    float resultado;
-    resultado = num1 / num2;
-    if(num2 == 0){
-        printf("Não é possível realizar um divisão por zero!");
+float divisaof(float num1, float num2) {
+    if (num2 == 0) {
+        printf("Não é possível realizar uma divisão por zero!\n");
+        return 0;
+    } else {
+        return num1 / num2;
     }
-    else{
-        resultado = num1 / num2;
-    }
-    return resultado;
 }
 
-float potenciaf (float num1, float num2){
-    float resultado;
-    for(int i = 0; i < num2; i++){
+float potenciaf(float num1, float num2) {
+    float resultado = 1; // Inicializando resultado como 1 para a multiplicação
+    for (int i = 0; i < num2; i++) {
         resultado *= num1;
     }
     return resultado;
 }
 
-float porcentagemf (float num1, float num2){
-    float resultado;
-    resultado = num1 / 100 * num2;
-    return resultado;
+float porcentagemf(float num1, float num2) {
+    return (num1 * num2) / 100;
 }
 
 int main() {
+    float num1, num2, resultado;
+    char operador;
+    char igual;
     
-    float num1, num2;
-    char operador, resposta;
-    float resultado;
     
-    printf("Digite um númeto:");
+    printf("Digite um número: ");
     scanf("%f", &num1);
-    
-    printf("\nEscolha um dos operadores lógicos para efetuar a operação?");
+
+    printf("\nEscolha um dos operadores lógicos para efetuar a operação:");
     printf("\n[+] - Soma");
     printf("\n[-] - Subtração");
     printf("\n[*] - Multiplicação");
     printf("\n[/] - Divisão");
-    printf("\n[^] - Potencia");
-    printf("\n[%] - Porcentagem");
+    printf("\n[^] - Potência");
+    printf("\n[%%] - Porcentagem");
     
-    printf("\n\nInsira aqui o operador:");
-    scanf("%s", &operador);
+    printf("\n\nInsira aqui o operador: ");
+    scanf(" %c", &operador); 
     
-    printf("\nInsira aqui o segundo operador lógico:");
+    printf("\nInsira aqui o segundo número: ");
     scanf("%f", &num2);
-    
-    switch(operador){
+
+    switch (operador) {
         case '+':
             resultado = somaf(num1, num2);
             break;
         case '-':
-            resultado == subtracaof(num1, num2);
+            resultado = subtracaof(num1, num2);
             break;
         case '*':
-            resultado == multiplicaçãof(num1, num2);
+            resultado = multiplicacaof(num1, num2);
             break;
         case '/':
-            resultado == divisaof(num1, num2);
+            resultado = divisaof(num1, num2);
             break;
         case '^':
-            resultado == potenciaf(num1, num2);
+            resultado = potenciaf(num1, num2);
             break;
         case '%':
-            resultado == porcentagemf(num1, num2);
+            resultado = porcentagemf(num1, num2);
             break;
         default:
-            printf("\nO operador digitado não condiz com a opção. Tente novamente!");
-            return 1;
+            printf("\nO operador digitado não condiz com a opção. Tente novamente!\n");
+            return 0;
     }
-    printf("Digite o segundo numero:");
-    printf("\n\nA operação é: %.2f %c %.2f = %.2f", num1, operador, num2, resultado);
+    printf("\n\nA operação é: %.2f %c %.2f = %.2f\n", num1, operador, num2, resultado);
     
-    printf("Deseja continuar com o calculo ? (sim/não)");
-    scanf("%c", resposta);
     
-    if(resposta == sim)){
-        printf("Ok. Vamos lá!");
-    }
-    else{
-        printf("Obrigado por utilizar a calculadora do Syminho. Volte sempre!");
-    }
     return 0;
 }
