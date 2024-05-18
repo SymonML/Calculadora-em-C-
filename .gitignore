@@ -22,7 +22,7 @@ float divisaof(float num1, float num2) {
 }
 
 float potenciaf(float num1, float num2) {
-    float resultado = 1; // Inicializando resultado como 1 para a multiplicação
+    float resultado = 1;
     for (int i = 0; i < num2; i++) {
         resultado *= num1;
     }
