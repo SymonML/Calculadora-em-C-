@@ -32,45 +32,51 @@ float potenciaf(float num1, float num2) {
 float porcentagemf(float num1, float num2) {
     return (num1 * num2) / 100;
 }
-    int main() {
-        
-    float numero, resultado;
+
+int main() {
+    float numero, resultado = 0;
     char operador;
     int entrada = 1;
     
+    printf("Digite o número ou operador:\n");
+
     while(1){
-    
-    scanf(" %f", &numero);
-    
-        if(entrada){
-        resultado = entrada;
-        entrada = 0;
+        if (entrada){
+            scanf("%f", &numero);
+            resultado = numero;
+            entrada = 0;
         }
         else{
-            scanf("%c", &operador);
-        
-            switch (operador) {
-                case '+':
-                    resultado = somaf(resultado, numero);
-                    break;
-                case '-':
-                    resultado = subtracaof(resultado, numero);
-                    break;
-                case '*':
-                    resultado = multiplicacaof(resultado, numero);
-                    break;
-                case '/':
-                    resultado = divisaof(resultado, numero);
-                    break;
-                case '^':
-                    resultado = potenciaf(resultado, numero);
-                    break;
-                case '%':
-                    resultado = porcentagemf(resultado, numero);
-                    break;
-                default:
-                    printf("\nO operador digitado não condiz com a opção. Tente novamente!\n");
-            return 0;
+            scanf(" %c", &operador);
+            if(operador == '='){
+                printf("Resultado: %.2f\n", resultado);
+                break;
+            }
+            else{
+                scanf("%f", &numero);
+                switch (operador) {
+                    case '+':
+                        resultado = somaf(resultado, numero);
+                        break;
+                    case '-':
+                        resultado = subtracaof(resultado, numero);
+                        break;
+                    case '*':
+                        resultado = multiplicacaof(resultado, numero);
+                        break;
+                    case '/':
+                        resultado = divisaof(resultado, numero);
+                        break;
+                    case '^':
+                        resultado = potenciaf(resultado, (int)numero);
+                        break;
+                    case '%':
+                        resultado = porcentagemf(resultado, numero);
+                        break;
+                    default:
+                        printf("\nO operador digitado não condiz com a opção. Tente novamente!\n");
+                return 1;
+                }
             }
         }
     }
