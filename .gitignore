@@ -21,7 +21,7 @@ float divisaof(float num1, float num2) {
     }
 }
 
-float potenciaf(float num1, float num2) {
+float potenciaf(float num1, int num2) {
     float resultado = 1;
     for (int i = 0; i < num2; i++) {
         resultado *= num1;
@@ -36,26 +36,25 @@ float porcentagemf(float num1, float num2) {
 int main() {
     float numero, resultado = 0;
     char operador, resposta;
-    int entrada = 1;
-    
-    printf("Seja bem vindo a calculadora do Syminho!!!\n");
+    int entrada;
 
-    do{
-        printf("\nDigite o número ou operador:\n");
-    
-        while(1){
-            if (entrada){
+    printf("Seja bem-vindo à calculadora do Syminho !!!\n");
+
+    do {
+        printf("\nDigite uma operação:\n");
+        entrada = 1;  // Resetar a entrada para cada novo cálculo
+
+        while (1) {
+            if (entrada) {
                 scanf("%f", &numero);
                 resultado = numero;
                 entrada = 0;
-            }
-            else{
+            } else {
                 scanf(" %c", &operador);
-                if(operador == '='){
+                if (operador == '=') {
                     printf("Resultado: %.2f\n", resultado);
                     break;
-                }
-                else{
+                } else {
                     scanf("%f", &numero);
                     switch (operador) {
                         case '+':
@@ -71,29 +70,30 @@ int main() {
                             resultado = divisaof(resultado, numero);
                             break;
                         case '^':
-                        resultado = potenciaf(resultado, (int)numero);
+                            resultado = potenciaf(resultado, (int)numero);
                             break;
                         case '%':
                             resultado = porcentagemf(resultado, numero);
                             break;
                         default:
                             printf("\nO operador digitado não condiz com a opção. Tente novamente!\n");
-                    return 1;
+                            return 1;
                     }
                 }
             }
         }
-        
-        printf("\nDeseja efetuar mais um cáculo ? (s/n): ");
+
+        printf("\nDeseja efetuar outro cálculo? (s/n): ");
         scanf(" %c", &resposta);
-        
-            if(resposta == 'n'){
-               printf("\nObrigado por utilizar a calculadora do Syminho!\n"); 
-            }   
-            else if(resposta != 's'){
-                 printf("\nA resposta não condiz com a opção, digite novamente!\n");
-            }
-    }while(resposta == 's');
-    
+        // Limpar o buffer para garantir leitura correta da próxima entrada
+        while (getchar() != '\n');
+
+        if (resposta == 'n') {
+            printf("\nObrigado por utilizar a calculadora do Syminho!\n");
+        } else if (resposta != 's') {
+            printf("\nA resposta não condiz com a opção, digite novamente!\n");
+        }
+    } while (resposta == 's');
+
     return 0;
 }
