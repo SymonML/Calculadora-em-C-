@@ -35,68 +35,76 @@ float porcentagemf(float num1, float num2) {
 
 int main() {
     float numero, resultado = 0;
-    char operador, resposta;
+    char operador, resposta, iniciar;
     int entrada = 1;
     
     printf("Seja bem vindo a calculadora do Syminho!!!\n");
-
-    do{
-        printf("\nDigite o número ou operador:\n");
     
-        while(1){
-            if (entrada){
-                scanf("%f", &numero);
-                resultado = numero;
-                entrada = 0;
+    printf("\nDeseja iniciar uma operção(s/n)?\n");
+    scanf("%c", &iniciar);
+ 
+        if(iniciar == 'n'){
+            printf("\nOK.Faça a conta de cabeça então! Calculadora desligada.\n");
             }
-            else{
-                scanf(" %c", &operador);
-                if(operador == '='){
-                    printf("Resultado: %.2f\n", resultado);
-                    break;
-                }
-                else{
-                    scanf("%f", &numero);
-                    switch (operador) {
-                        case '+':
-                            resultado = somaf(resultado, numero);
+        else{
+            do{
+                printf("\nDigite digite o número e os operadores lógicos para ser :\n");
+    
+                while(1){
+                    if (entrada){
+                        scanf("%f", &numero);
+                        resultado = numero;
+                        entrada = 0;
+                        }
+                    else{
+                        scanf(" %c", &operador);
+                        if(operador == '='){
+                            printf("Resultado: %.2f\n", resultado);
                             break;
-                        case '-':
-                            resultado = subtracaof(resultado, numero);
-                            break;
-                        case '*':
-                            resultado = multiplicacaof(resultado, numero);
-                            break;
-                        case '/':
-                            resultado = divisaof(resultado, numero);
-                            break;
-                        case '^':
-                        resultado = potenciaf(resultado, (int)numero);
-                            break;
-                        case '%':
-                            resultado = porcentagemf(resultado, numero);
-                            break;
-                        default:
+                    }
+                    else{
+                        scanf("%f", &numero);
+                        switch (operador) {
+                            case '+':
+                                resultado = somaf(resultado, numero);
+                                break;
+                            case '-':
+                                resultado = subtracaof(resultado, numero);
+                                break;
+                            case '*':
+                                resultado = multiplicacaof(resultado, numero);
+                                break;
+                            case '/':
+                                resultado = divisaof(resultado, numero);
+                                break;
+                            case '^':
+                            resultado = potenciaf(resultado, (int)numero);
+                                break;
+                            case '%':
+                                resultado = porcentagemf(resultado, numero);
+                                break;
+                            default:
                             printf("\nO operador digitado não condiz com a opção. Tente novamente!\n");
-                    return 1;
+                        return 1;
+                        }
                     }
                 }
             }
-        }
         
-        printf("\nDeseja efetuar mais um cáculo ? (s/n): ");
-        scanf(" %c", &resposta);
+            printf("\nDeseja efetuar mais um cáculo ? (s/n): ");
+            scanf(" %c", &resposta);
         
-            if(resposta == 'n'){
-               printf("\nObrigado por utilizar a calculadora do Syminho!\n"); 
-            }   
-            else if(resposta != 's'){
-                 printf("\nA resposta não condiz com a opção, digite novamente!\n");
-            }
-            else{
-                entrada = 1;
-            }
-    }while(resposta == 's');
+                if(resposta == 'n'){
+                printf("\nObrigado por utilizar a calculadora do Syminho!\n"); 
+                }   
+                else if(resposta != 's'){
+                    printf("\nA resposta não condiz com a opção, digite novamente!\n");
+                }
+                else{
+                    entrada = 1;
+                }
+        }while(resposta == 's');
+    }
     
-    return 0;
+        return 0;
 }
