@@ -82,12 +82,10 @@ int main() {
                 }
             }
         }
-
+        
         printf("\nDeseja efetuar outro cálculo? (s/n): ");
         scanf(" %c", &resposta);
-        // Limpar o buffer para garantir leitura correta da próxima entrada
-        while (getchar() != '\n');
-
+      
         if (resposta == 'n') {
             printf("\nObrigado por utilizar a calculadora do Syminho!\n");
         } else if (resposta != 's') {
