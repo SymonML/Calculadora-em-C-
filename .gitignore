@@ -1,5 +1,16 @@
 #include <stdio.h>
 
+void introdução(){
+    printf("\nSelecione um número e um dos operadoradores lógicos abaixo para iniciar um cálculo. Lembrando que para finaliza-lo deve digitar (=) e (ENTER)\n");
+                
+                printf("Soma = [+]\n");
+                printf("Subtração = [-]\n");
+                printf("Multiplicação = [*]\n");
+                printf("Divisão = [/]\n");
+                printf("Potencia = [^]\n");
+                printf("Porcentagem = [%]\n");
+}
+
 float somaf(float num1, float num2) {
     return num1 + num2;
 }
@@ -48,14 +59,7 @@ int main() {
             }
         else{
             do{
-                printf("\nSelecione um número e um dos operadoradores lógicos abaixo para iniciar um cálculo. Lembrando que para finaliza-lo deve digitar (=) e (ENTER)\n");
-                
-                printf("Soma = [+]\n");
-                printf("Subtração = [-]\n");
-                printf("Multiplicação = [*]\n");
-                printf("Divisão = [/]\n");
-                printf("Potencia = [^]\n");
-                printf("Porcentagem = [%]\n");
+                introdução();
                 
                 while(1){
                     if (entrada){
