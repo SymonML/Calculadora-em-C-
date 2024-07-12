@@ -57,6 +57,9 @@ int main() {
         if(iniciar == 'n'){
             printf("\nOK.Faça a conta de cabeça então! Calculadora desligada.\n");
             }
+        else if(iniciar != 's' || iniciar != 'n'){
+            printf("O número informdo não coincide, favor seguir a operação informada!");
+        }
         else{
             do{
                 introdução();
